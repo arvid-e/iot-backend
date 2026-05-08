@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Router } from 'express';
 
 const router = Router();
 
@@ -6,4 +6,3 @@ const router = Router();
 // router.get('/latest', sensorController.getLatestData);
 
 export default router;
-

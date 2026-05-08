@@ -1,4 +1,5 @@
 import { Router } from 'express';
+
 import sensorRoutes from './sensor-routes.js';
 
 const router = Router();
