@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 
 import { app } from './app.js';
 import { connectDB } from './config/mongoose.js';
+import { connectMQTT } from './mqtt/client.js';
 
 const port = 3000;
 let server: any;
@@ -9,6 +10,8 @@ let server: any;
 export const startServer = async () => {
   try {
     await connectDB();
+    connectMQTT();
+
     server = app.listen(port, () => {
       console.log(`Server running at http://localhost:${port}`);
       console.log(`Access API at http://localhost:${port}/api/v1`);
