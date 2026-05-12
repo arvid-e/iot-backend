@@ -6,4 +6,4 @@ export interface SensorData {
   device_timestamp: number;
 }
 
-export interface ISensorDataDocument extends SensorData, Document {}
+export interface SensorDataDocument extends SensorData, Document {}

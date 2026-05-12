@@ -1,8 +1,8 @@
 import { Schema, model } from 'mongoose';
 
-import type { ISensorDataDocument } from '../interfaces/sensor-data.js';
+import type { SensorDataDocument } from '../interfaces/sensor-data.js';
 
-const userSchema = new Schema<ISensorDataDocument>(
+const userSchema = new Schema<SensorDataDocument>(
   {
     temperature: {
       type: Number,
@@ -19,5 +19,5 @@ const userSchema = new Schema<ISensorDataDocument>(
   },
 );
 
-const SensorData = model<ISensorDataDocument>('SensorData', userSchema);
-export default SensorData;
+const SensorDataModel = model<SensorDataDocument>('SensorData', userSchema);
+export default SensorDataModel;
