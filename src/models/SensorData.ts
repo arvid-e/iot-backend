@@ -10,7 +10,7 @@ const userSchema = new Schema<SensorDataDocument>(
     humidity: {
       type: Number,
     },
-    device_timestamp: {
+    timestamp: {
       type: Number,
     },
   },

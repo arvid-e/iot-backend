@@ -17,13 +17,19 @@ export function connectMQTT() {
 
       if (!isSensorData(payload)) {
         console.error('Invalid sensor data shape');
+        console.log(`${payload}`);
         return;
       }
 
       await SensorDataModel.create(payload);
+      console.log('Saved sensor data');
     } catch (error) {
       console.error('Failed to parse MQTT message', error);
     }
+  });
+
+  client.on('error', (error) => {
+    console.error('MQTT connection error:', error);
   });
 }
 
@@ -33,6 +39,6 @@ function isSensorData(data: unknown): data is SensorData {
     data != null &&
     'temperature' in data &&
     'humidity' in data &&
-    'device_timestamp' in data
+    'timestamp' in data
   );
 }
