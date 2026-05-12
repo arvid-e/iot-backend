@@ -1,3 +1,5 @@
+import http from 'http';
+
 import mongoose from 'mongoose';
 
 import { app } from './app.js';
@@ -5,7 +7,7 @@ import { connectDB } from './config/mongoose.js';
 import { connectMQTT } from './mqtt/client.js';
 
 const port = 3000;
-let server: any;
+let server: http.Server;
 
 export const startServer = async () => {
   try {
@@ -17,7 +19,7 @@ export const startServer = async () => {
       console.log(`Access API at http://localhost:${port}/api/v1`);
     });
   } catch (error) {
-    console.log('Failed to start server: ' + error);
+    console.log('Failed to start server: ', error);
   }
 };
 
