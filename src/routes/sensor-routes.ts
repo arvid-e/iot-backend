@@ -9,9 +9,12 @@ const sensorRepository = new SensorRepositoryImpl(SensorDataModel);
 const sensorService = new SensorServiceImpl(sensorRepository);
 const sensorController = new SensorController(sensorService);
 
+const getHistoricalData = sensorController.getHistoricalData.bind(sensorController);
+const getLatestData = sensorController.getLatestData.bind(sensorController);
+
 const router = Router();
 
-router.get('/', sensorController.getHistoricalData);
-router.get('/latest', sensorController.getLatestData);
+router.get('/', getHistoricalData);
+router.get('/latest', getLatestData);
 
 export default router;
